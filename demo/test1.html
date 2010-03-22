@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Test PHI - Functionalities</title>
+<script type="text/javascript" src="../build/mootools-1.2.4-core-yc.js"></script>
+<script type="text/javascript" src="../src/phi-core.js"></script>
+</head>
+<body>
+	<h1>This is a Test for the Functionalities of the PHI-core Plugin</h1>
+	<h2>ID Generator</h2>
+	<p>
+		<span class="highlighted">
+			PHI.id(prefix, length) 
+		</span>
+		- Generate a random ID, composed by the string "phi-", the string <i>prefix</i>, if not empty, followed by a minus ( {prefix}- ), and a radomized number of 10 digits or, 
+		if length is not empty, of the length passed.<br />
+		While generating the ID, the partial value is fetched through an array which contains every IDs generated, so a replication is not possible. 
+	</p>
+	<h3>Parameters</h3>
+	<ul>
+		<li>prefix - string: a string used to customize the ID</li>
+		<li>length - integer: the length o the final part of the ID</li>
+	</ul>
+	<h3>Return</h3>
+	<ul>
+		<li>
+			string: the unique generated ID
+		</li>
+	</ul>
+	<h3>Examples</h3>
+	<p>
+		Generation of a sample ID:
+		<code>PHI.id();</code> - Result: <span id = "Result1"></span>
+	</p>
+	<p>
+		Generation of an ID with prefix:
+		<code>PHI.id("test");</code> - Result: <span id = "Result2"></span>
+	</p>
+	<p>
+		Generation of an ID with prefix and fixed length:
+		<code>PHI.id("test", 5);</code> - Result: <span id = "Result3"></span>
+	</p>
+	<script type="text/javascript">
+		window.addEvent("domready", function(){
+			document.id("Result1").set('html', PHI.id());
+			document.id("Result2").set('html', PHI.id("test"));
+			document.id("Result3").set('html', PHI.id("test", 5));
+		});
+	</script>
+</body>
+</html>
